@@ -1,0 +1,1 @@
+This is test task for check knowledge of streams

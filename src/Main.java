@@ -66,7 +66,7 @@ public class Main {
         return gameMap.values()
                 .stream()
                 .flatMap(Collection::stream)
-                .filter(value -> value.getGold() == thirdOfGold)
+                .filter(value -> value.getGold().equals(thirdOfGold))
                 .toList().get(0);
     }
 
@@ -85,7 +85,7 @@ public class Main {
     public static List<GameObject> getSecondObjectByGoldOnEachCell(Map<Coordinate, List<GameObject>> gameMap) {
         return gameMap.values()
                 .stream()
-                .map(e -> e.stream().min((g1, g2) -> g1.getGold() - g2.getGold())
+                .map(e -> e.stream().min(Comparator.comparingInt(GameObject::getGold))
                 .get())
                 .toList();
     }
